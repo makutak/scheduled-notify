@@ -9,5 +9,5 @@ export const handler: ScheduledHandler = async (event: ScheduledEvent, context: 
         const result = err;
         console.log("Error: ", result);
     }
-    cb(null, `Finish!!`);
+    cb(null, "send!!");
 }
