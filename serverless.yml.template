@@ -1,0 +1,22 @@
+service:
+  name: ts-scheduled-notify
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  stage: dev
+  region: ap-northeast-1
+  runtime: nodejs8.10
+  timeout: 300
+  environment:
+    TOKEN: <API TOKEN>
+
+
+functions:
+  wake-up:
+    handler: src/handler/wake-up.handler
+    events:
+      - schedule: cron(30-59/5 23 ? * 1-5 *)
